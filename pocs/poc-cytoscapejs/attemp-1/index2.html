@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genealogical Tree with Cytoscape.js</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.1/cytoscape.min.js"></script>
+    <style>
+        #cy {
+            width: 800px;
+            height: 600px;
+        }
+        .node-label {
+            text-align: center;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .node-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="cy"></div>
+
+    <script>
+        const cy = cytoscape({
+            container: document.getElementById('cy'),
+            elements: [
+                { data: { id: 'John', name: 'John Doe', image: 'john.jpg' } },
+                { data: { id: 'Jane', name: 'Jane Doe', image: 'jane.jpg' } },
+                { data: { id: 'Child1', name: 'Child 1', image: 'child1.jpg' } },
+                { data: { id: 'Child2', name: 'Child 2', image: 'child2.jpg' } },
+                // Add more nodes and edges here
+                { data: { source: 'John', target: 'Jane' } },
+                { data: { source: 'Jane', target: 'Child1' } },
+                { data: { source: 'Jane', target: 'Child2' } },
+                // Add more edges here
+            ],
+            style: [
+                {
+                    selector: 'node',
+                    style: {
+                        'background-color': '#3182bd',
+                        'border-width': 2,
+                        'border-color': '#fff',
+                        'shape': 'ellipse',
+                        'width': '75px',
+                        'height': '75px',
+                        'label': 'data(name)',
+                        'background-image': 'data(image)',
+                        'background-fit': 'cover',
+                        'background-opacity': 0.7
+                    }
+                },
+                {
+                    selector: 'edge',
+                    style: {
+                        'width': 2,
+                        'line-color': '#9ecae1'
+                    }
+                }
+            ],
+            layout: {
+                name: 'breadthfirst',
+                directed: true,
+                padding: 10
+            }
+        });
+    </script>
+</body>
+</html>
+

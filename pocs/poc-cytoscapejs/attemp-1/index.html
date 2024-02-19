@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genealogical Tree with Timeline (Cytoscape.js)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.1/cytoscape.min.js"></script>
+    <style>
+        #cy-container {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #timeline-container {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 20px;
+        }
+
+        #timeline {
+            width: 40px;
+            background-color: #f0f0f0;
+            padding: 20px 0;
+        }
+
+        .timeline-event {
+            width: 20px;
+            height: 20px;
+            background-color: #3182bd;
+            margin: 5px auto;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="cy-container">
+        <div id="cy"></div>
+    </div>
+    <div id="timeline-container">
+        <div id="timeline"></div>
+    </div>
+
+    <script>
+        const cy = cytoscape({
+            container: document.getElementById('cy'),
+            elements: [
+                { data: { id: 'John', name: 'John Doe', image: 'john.jpg', birthYear: 1980 } },
+                { data: { id: 'Jane', name: 'Jane Doe', image: 'jane.jpg', birthYear: 1985 } },
+                { data: { id: 'Child1', name: 'Child 1', image: 'child1.jpg', birthYear: 2010 } },
+                { data: { id: 'Child2', name: 'Child 2', image: 'child2.jpg', birthYear: 2015 } },
+                // Add more nodes and edges here
+                { data: { source: 'John', target: 'Jane' } },
+                { data: { source: 'Jane', target: 'Child1' } },
+                { data: { source: 'Jane', target: 'Child2' } },
+                // Add more edges here
+            ],
+            style: [
+                {
+                    selector: 'node',
+                    style: {
+                        'background-color': '#3182bd',
+                        'border-width': 2,
+                        'border-color': '#fff',
+                        'shape': 'ellipse',
+                        'width': '75px',
+                        'height': '75px',
+                        'label': 'data(name)',
+                        'background-image': 'data(image)',
+                        'background-fit': 'cover',
+                        'background-opacity': 0.7
+                    }
+                },
+                {
+                    selector: 'edge',
+                    style: {
+                        'width': 2,
+                        'line-color': '#9ecae1'
+                    }
+                }
+            ],
+            layout: {
+                name: 'breadthfirst',
+                directed: true,
+                padding: 10
+            }
+        });
+
+        const timelineContainer = document.getElementById('timeline');
+
+        // Create timeline events
+        const timelineData = [
+            { name: 'John', birthYear: 1980 },
+            { name: 'Jane', birthYear: 1985 },
+            { name: 'Child 1', birthYear: 2010 },
+            { name: 'Child 2', birthYear: 2015 },
+            // Add more timeline events here
+        ];
+
+        const timelineEvents = timelineData.map(event => {
+            const timelineEvent = document.createElement('div');
+            timelineEvent.className = 'timeline-event';
+            timelineEvent.addEventListener('click', () => goToYear(event.birthYear));
+            return timelineEvent;
+        });
+
+        timelineEvents.forEach(event => timelineContainer.appendChild(event));
+
+        // Function to synchronize graph with the timeline
+        function goToYear(year) {
+            cy.animate({
+                fit: {
+                    eles: cy.nodes().filter(node => node.data('birthYear') === year),
+                    padding: 50
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

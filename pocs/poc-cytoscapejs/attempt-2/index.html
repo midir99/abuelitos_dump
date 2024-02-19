@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js" integrity="sha512-rOsRHy2O7kykGotH99Bi0+LyynL6rfQpaMiKOwYa1K1jYAFksJUwXE1gE6Relgo88g6lQ/uf8NaWeyzi1T53Zg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style>
+         #cy {
+             width: 600px;
+             height: 600px;
+             display: block;
+             background-color: lightblue;
+         }
+
+        </style>
+    </head>
+    <body>
+        <div id="cy"></div>
+        <script>
+            var cy = cytoscape({
+                container: document.getElementById("cy"),
+
+                elements: [
+                    { data: { id: "Porfirio" }, position: { x: 100, y: 100 } },
+
+                    { data: { id: "Sara" }, },
+                    { data: { id: "Yolanda" }, },
+                    { data: { id: "Javier" }, },
+                    { data: { id: "Eliseo" }, },
+
+                    { data: { id: "Lucia" }, },
+                    { data: { id: "Leticia" }, },
+                    { data: { id: "Juan" }, },
+                    { data: { id: "Rocio" }, },
+
+                    { data: { id: "1", source: "Porfirio", target: "Yolanda" }, },
+                    { data: { id: "2", source: "Porfirio", target: "Javier" }, },
+                    { data: { id: "3", source: "Porfirio", target: "Eliseo" }, },
+
+                    { data: { id: "4", source: "Sara", target: "Yolanda" }, },
+                    { data: { id: "5", source: "Sara", target: "Javier" }, },
+                    { data: { id: "6", source: "Sara", target: "Eliseo" }, },
+
+                    { data: { id: "7", source: "Porfirio", target: "Leticia" }, },
+                    { data: { id: "8", source: "Porfirio", target: "Juan" }, },
+                    { data: { id: "9", source: "Porfirio", target: "Rocio" }, },
+
+                    { data: { id: "10", source: "Lucia", target: "Leticia" }, },
+                    { data: { id: "11", source: "Lucia", target: "Juan" }, },
+                    { data: { id: "12", source: "Lucia", target: "Rocio" }, },
+                ],
+
+                style: [
+                    {
+                        selector: "node",
+                        style: {
+                            "background-color": "#555",
+                            "label": "data(id)",
+                        },
+                    },
+                    //{
+                    //    selector: "edge",
+                    //    style: {
+                    //        "width": 3,
+                    //        "line-color": "#ccc",
+                    //        "target-arrow-color": "#ccc",
+                    //        "target-arrow-shape": "triangle",
+                    //        "curve-style": "bezier",
+                    //    },
+                    //},
+                    {
+                        selector: "edge",
+                        style: {
+                            "curve-style": "taxi",
+                            "taxi-direction": "downward",
+                            "taxi-turn": "20px",
+                            "taxi-turn-min-distance": 5,
+                        },
+                    },
+                ],
+
+                layout: {
+                    name: "preset",
+                    rows: 1,
+                },
+            })
+        </script>
+    </body>
+</html>

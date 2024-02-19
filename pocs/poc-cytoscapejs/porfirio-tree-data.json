@@ -1,0 +1,128 @@
+[
+    {
+        "id": 1,
+        "name": "Porfirio Alvarez Vazquez",
+        "father": 2,
+        "mother": 3
+    },
+    {
+        "id": 2,
+        "name": "Juan Alvarez",
+        "father": 17,
+        "mother": 18
+    },
+    {
+        "id": 3,
+        "name": "Clara Vazquez",
+        "father": 19,
+        "mother": 20
+    },
+    {
+        "id": 4,
+        "name": "Maria Franco Valdez",
+        "father": null,
+        "mother": null
+    },
+    {
+        "id": 5,
+        "name": "Javier Alvarez Franco",
+        "father": 1,
+        "mother": 4
+    },
+    {
+        "id": 6,
+        "name": "Yolanda Alvarez Franco",
+        "father": 1,
+        "mother": 4
+    },
+    {
+        "id": 7,
+        "name": "Eliseo Alvarez Franco",
+        "father": 1,
+        "mother": 4
+    },
+    {
+        "id": 8,
+        "name": "Rosario Alvarez Franco",
+        "father": 1,
+        "mother": 4
+    },
+    {
+        "id": 9,
+        "name": "Jaime Alvarez Franco",
+        "father": 1,
+        "mother": 4
+    },
+    {
+        "id": 10,
+        "name": "Sofia Alvarez Franco",
+        "father": 1,
+        "mother": 4
+    },
+    {
+        "id": 11,
+        "name": "Lucia Santoyo Nuniez",
+        "father": null,
+        "mother": null
+    },
+    {
+        "id": 12,
+        "name": "Leticia Alvarez Santoyo",
+        "father": 1,
+        "mother": 11
+    },
+    {
+        "id": 13,
+        "name": "Rocio Alvarez Santoyo",
+        "father": 1,
+        "mother": 11
+    },
+    {
+        "id": 14,
+        "name": "Juan Alvarez Santoyo",
+        "father": 1,
+        "mother": 11
+    },
+    {
+        "id": 14,
+        "name": "Jorge Alarcon Alvarez",
+        "father": null,
+        "mother": 12
+    },
+    {
+        "id": 15,
+        "name": "Lucia Alarcon Alvarez",
+        "father": null,
+        "mother": 12
+    },
+    {
+        "id": 16,
+        "name": "Selena Alvarez Marquez",
+        "father": null,
+        "mother": 6
+    },
+    {
+        "id": 17,
+        "name": "Jose Alvarez Valentin",
+        "father": null,
+        "mother": null
+    },
+    {
+        "id": 18,
+        "name": "Sandra Moctezuma Cortes",
+        "father": null,
+        "mother": null
+    },
+    {
+        "id": 19,
+        "name": "Santiago Vazquez Ponciano",
+        "father": null,
+        "mother": null
+    },
+    {
+        "id": 20,
+        "name": "Martina Salamanca Mortero",
+        "father": null,
+        "mother": null
+    }
+]
